@@ -1,0 +1,29 @@
+# BEGIN ANSIBLE MANAGED BLOCK
+agent01 ansible_host=bamboo_agent01.manrodri.com
+agent02 ansible_host=bamboo_agent02.manrodri.com
+
+bamboo_master ansible_host=bamboo.manrodri.com
+
+cntl ansible_host=127.0.0.1 ansible_connection=local
+
+
+[agents]
+agent01
+agent02
+
+[master]
+bamboo_master
+
+[control]
+cntl
+
+[stack_inst:children]
+agents
+master
+
+[stack_inst:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=/Users/manuel/Desktop/AWS/aws_keys/bamboo.cer
+#ansible_python_interpreter=/usr/bin/python3
+# END ANSIBLE MANAGED BLOCK
+
