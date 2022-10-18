@@ -1,5 +1,9 @@
 name: Context testing
-on: push
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - gitHub-actions-udemy
 
 jobs:
   dump_contexts_to_log:
